@@ -1,0 +1,12 @@
+[workspace]
+members = [
+    "src/boot",
+    "src/kernel",
+    "src/shell",
+    "src/gui",
+    "src/fs",
+    "src/drivers",
+    "src/startup"
+]
+resolver = "2"
+
