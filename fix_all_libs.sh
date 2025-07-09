@@ -1,20 +1,14 @@
 #!/bin/bash
+set -e
 
-echo "🔧 Fixing all lib.rs files under src/*/src..."
-
-for file in src/*/src/lib.rs; do
-    if [ -f "$file" ]; then
-        echo "→ Updating $file"
-        cat > "$file" <<EOF
+for crate in boot kernel gui fs shell drivers startup; do
+  cat > src/$crate/src/lib.rs <<EOF
 #![no_std]
 #![no_main]
 
 #[no_mangle]
-pub unsafe extern "C" fn _start() -> ! {
+pub unsafe extern "C" fn _start_${crate}() -> ! {
     loop {}
 }
 EOF
-    fi
 done
-
-echo "✅ All lib.rs files updated."

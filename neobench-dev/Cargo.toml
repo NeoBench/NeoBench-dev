@@ -1,1 +1,2 @@
+cargo-features = ["edition2024"]
 [workspace]

@@ -1,0 +1,9 @@
+/target
+**/*.o
+**/*.bin
+**/*.elf
+**/*.srec
+**/*.map
+*.swp
+*.bak
+.DS_Store

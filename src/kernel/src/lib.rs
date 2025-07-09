@@ -1,3 +1,4 @@
+//! Kernel entry point
 #![no_std]
 #![no_main]
 

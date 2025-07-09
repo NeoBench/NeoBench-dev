@@ -1,12 +1,17 @@
 [workspace]
 members = [
     "src/boot",
-    "src/kernel",
-    "src/shell",
     "src/gui",
+    "src/kernel",
     "src/fs",
     "src/drivers",
-    "src/startup"
+    "src/shell",
+    "src/startup",
+    "src/neobench"
 ]
-resolver = "2"
 
+[patch.crates-io]
+compiler_builtins = { git = "https://github.com/rust-lang/compiler-builtins", branch = "master", features = ["mem"] }
+
+# Optional: fix resolver warning
+resolver = "2"

@@ -1,26 +1,26 @@
 #!/bin/bash
-echo "Fixing lib.rs files..."
+echo "🔧 Fixing NeoBench entrypoints..."
 
 declare -A crates=(
-  [startup]="_start_startup"
   [kernel]="_start_kernel"
+  [fs]="_start_fs"
   [boot]="_start_boot"
   [gui]="_start_gui"
 )
 
 for crate in "${!crates[@]}"; do
   path="src/$crate/src/lib.rs"
-  func="${crates[$crate]}"
-  echo "Fixing $path..."
-  cat > "$path" <<END
+  entry="${crates[$crate]}"
+  echo "✔ Overwriting $path"
+  cat > "$path" <<EOF
 #![no_std]
 #![no_main]
 
 #[no_mangle]
-pub unsafe extern "C" fn $func() -> ! {
+pub unsafe extern "C" fn $entry() -> ! {
     loop {}
 }
-END
+EOF
 done
 
-echo "Done."
+echo "✅ Entry points fixed."

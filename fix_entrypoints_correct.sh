@@ -1,4 +1,5 @@
 #!/bin/bash
+# Save as: fix_entrypoints_correct.sh
 
 declare -A modules=(
   [gui]="gui"
@@ -13,7 +14,7 @@ declare -A modules=(
 for module in "${!modules[@]}"; do
   file="src/${module}/src/lib.rs"
   func="_start_${module}"
-  echo "→ Fixing $file"
+  echo "→ Updating $file"
   cat > "$file" <<EOF
 #![no_std]
 #![no_main]
@@ -25,4 +26,5 @@ pub unsafe extern "C" fn ${func}() -> ! {
 EOF
 done
 
-echo "✅ All entrypoints fixed."
+echo "✅ All lib.rs entrypoints patched."
+

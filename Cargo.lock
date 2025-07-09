@@ -23,6 +23,15 @@ name = "kernel"
 version = "0.1.0"
 
 [[package]]
+name = "neobench"
+version = "0.1.0"
+dependencies = [
+ "boot",
+ "gui",
+ "kernel",
+]
+
+[[package]]
 name = "shell"
 version = "0.1.0"
 
