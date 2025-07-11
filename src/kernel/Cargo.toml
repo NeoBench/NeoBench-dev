@@ -1,8 +1,9 @@
-cargo-features = ["edition2024"]
 [package]
 name = "kernel"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
+
+[lib]
+crate-type = ["staticlib"]  # use staticlib for bare metal
 
 [dependencies]
-# any deps here

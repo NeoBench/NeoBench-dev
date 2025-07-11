@@ -1,16 +1,33 @@
 {
   "llvm-target": "m68k-unknown-none",
-  "target-endian": "big",
-  "target-pointer-width": "32",
-  "target-c-int-width": "32",
-  "data-layout": "E-m:e-p:32:32-i8:8:32-i16:16:32-i64:64-n8:16:32-S32",
   "arch": "m68k",
   "os": "none",
   "vendor": "neobench",
-  "linker-flavor": "ld.lld",
+  "linker-flavor": "gcc",
+  "cpu": "generic",
+  "data-layout": "E-m:e-p:32:16:32-i8:8:8-i16:16:16-i32:16:32-n8:16:32-a:0:16-S16",
   "executables": true,
   "disable-redzone": true,
+  "features": "",
+  "relocation-model": "static",
+  "code-model": "small",
+  "eliminate-frame-pointer": false,
   "panic-strategy": "abort",
-  "features": "-atomic",
-  "no-compiler-rt": true
+  "target-endian": "big",
+  "target-pointer-width": "32",
+  "target-c-int-width": "16",
+  "linker": "m68k-elf-gcc",
+  "pre-link-args": {
+    "gcc": ["-nostartfiles", "-nostdlib"]
+  },
+  "post-link-args": {
+    "gcc": ["-lgcc"]
+  },
+  "max-atomic-width": 0,
+  "atomic-cas": false,
+  "default-hidden-visibility": true,
+  "no-compiler-rt": true,
+  "force-unwind-tables": false,
+  "crt-static-respected": true,
+  "emit-debug-gdb-scripts": false
 }
