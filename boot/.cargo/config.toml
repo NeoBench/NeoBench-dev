@@ -1,0 +1,7 @@
+[build]
+target = "m68k-unknown-none"
+
+[target.m68k-unknown-none]
+linker = "m68k-elf-ld"
+runner = "qemu-system-m68k -nographic -M amiga"
+

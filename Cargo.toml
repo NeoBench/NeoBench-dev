@@ -1,5 +1,6 @@
 [workspace]
-members = [
-    "src/kernel"
-]
-resolver = "2"  # or "3" if you want Edition 2024 behavior
+members = ["neoboot"]
+resolver = "2"
+
+[patch.crates-io]
+compiler_builtins = { path = "../cargo-local/compiler_builtins" }

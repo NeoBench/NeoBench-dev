@@ -1,0 +1,4 @@
+cat > Cargo.toml <<EOF
+[workspace]
+members = ["neoboot"]
+EOF

@@ -1,0 +1,6 @@
+[target.m68k-unknown-none]
+linker = "m68k-elf-ld"
+rustflags = [
+  "-C", "link-arg=-Tlink.ld",
+  "-C", "relocation-model=static",
+]
